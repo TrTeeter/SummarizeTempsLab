@@ -23,6 +23,7 @@ namespace SummarizeTempsLab
 
                 tempthresh = int.Parse(input);
 
+                using (var writer = new StreamWriter()) ;
 
             }
             else 
