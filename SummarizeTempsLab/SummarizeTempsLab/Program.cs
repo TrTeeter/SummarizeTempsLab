@@ -7,7 +7,29 @@ namespace SummarizeTempsLab
     {
         static void Main(string[] args)
         {
-            // temperature data is in temps.txt
+  
+            string filepath = "temps.txt";
+            int tempthresh;
+            string input = ("");
+
+            
+            Console.WriteLine("***Average Temperature**");
+            Console.ReadLine();
+
+            if (File.Exists(filepath))
+            { 
+                Console.WriteLine("Enter Temperature Threshold");
+                Console.WriteLine();
+
+                tempthresh = int.Parse(input);
+
+
+            }
+            else 
+            {
+                Console.WriteLine("File Does Not Exist");
+                Console.ReadLine();
+            }
         }
     }
 }
