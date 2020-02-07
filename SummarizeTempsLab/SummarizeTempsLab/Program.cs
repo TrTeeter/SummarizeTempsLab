@@ -8,22 +8,41 @@ namespace SummarizeTempsLab
         static void Main(string[] args)
         {
   
-            string filepath = "temps.txt";
+       
             int tempthresh;
+            int tempout;
             string input = ("");
+            string filepath = ("");
+          
+         
 
-            
             Console.WriteLine("***Average Temperature**");
-            Console.ReadLine();
+            Console.WriteLine("Enter File Name");
+
+            filepath = Console.ReadLine();
 
             if (File.Exists(filepath))
             { 
                 Console.WriteLine("Enter Temperature Threshold");
-                Console.WriteLine();
-
+                input = Console.ReadLine();
                 tempthresh = int.Parse(input);
+                
 
-                using (var writer = new StreamWriter()) ;
+                using (StreamReader sr = File.OpenText(filepath))
+                {
+                    string line = "";
+                        
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        tempout = int.Parse(line);
+                        if (tempout>tempthresh)
+                        {
+                            Console.WriteLine(tempout);
+                        }
+                    }
+                       
+                
+                }
 
             }
             else 
