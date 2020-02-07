@@ -7,10 +7,10 @@ namespace SummarizeTempsLab
     {
         static void Main(string[] args)
         {
-  
-       
-            int tempthresh;
-            int temp;
+
+
+            int tempthresh, temp,avg;
+            
            
             string input = ("");
             string filepath = ("");
@@ -72,9 +72,23 @@ namespace SummarizeTempsLab
 
                     }
                 }
+                using (StreamReader sr = File.OpenText(filepath))
+                {
+                    int sum = 0;
+                    Console.WriteLine("Average Temperature:");
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        temp = int.Parse(line);
+                        
+                        sum = temp + sum;
+                    }
+                    avg = sum / 365;
+                    Console.WriteLine(avg);
+                   
+                }
 
 
-                Console.WriteLine("Thank You! Have a Nice Day");
+                        Console.WriteLine("Thank You! Have a Nice Day");
             }
             else
             {
