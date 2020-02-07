@@ -10,7 +10,8 @@ namespace SummarizeTempsLab
   
        
             int tempthresh;
-            int tempout;
+            int temp;
+           
             string input = ("");
             string filepath = ("");
           
@@ -34,11 +35,18 @@ namespace SummarizeTempsLab
                         
                     while ((line = sr.ReadLine()) != null)
                     {
-                        tempout = int.Parse(line);
-                        if (tempout>tempthresh)
+                        temp = int.Parse(line);
+
+                       
+                          
+                            
+                        if (temp>tempthresh)
                         {
-                            Console.WriteLine(tempout);
+                            Console.WriteLine("Temperature above Threshhold");
+                            Console.WriteLine(temp);
+                            
                         }
+                        
                     }
                        
                 
