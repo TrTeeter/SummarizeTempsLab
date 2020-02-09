@@ -49,7 +49,7 @@ namespace SummarizeTempsLab
                         {
                             temp = int.Parse(line);
 
-                            if (temp > tempthresh)
+                            if (temp >= tempthresh)
 
                             {
                                 Console.WriteLine(temp);
