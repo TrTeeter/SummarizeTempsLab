@@ -10,12 +10,7 @@ namespace SummarizeTempsLab
             Console.WriteLine("***Average Temperature**");
 
 
-
             int tempthresh, temp, avg;
-
-
-
-
 
             string input = ("");
 
@@ -23,41 +18,25 @@ namespace SummarizeTempsLab
 
             string line = "";
 
+            bool Again = true;
+
 
 
             Console.WriteLine("Enter File Name");
-
             filepath = Console.ReadLine();
 
-
-
-            bool Again = true;
 
             while (Again)
 
             {
-
-
-
-
-
-
-
-
-
                 if (File.Exists(filepath))
 
                 {
-
                     Console.WriteLine("Enter Temperature Threshold");
-
                     input = Console.ReadLine();
 
+
                     tempthresh = int.Parse(input);
-
-
-
-
 
                     using (StreamReader sr = File.OpenText(filepath))
 
@@ -65,44 +44,17 @@ namespace SummarizeTempsLab
 
                         Console.WriteLine("Temperature above Threshhold:");
 
-
-
                         while ((line = sr.ReadLine()) != null)
 
                         {
-
                             temp = int.Parse(line);
-
-
-
-
-
-
-
-
 
                             if (temp >= tempthresh)
 
                             {
-
-
-
                                 Console.WriteLine(temp);
-
-
-
                             }
-
-
-
                         }
-
-
-
-
-
-
-
                     }
 
                     using (StreamReader sr = File.OpenText(filepath))
@@ -117,24 +69,10 @@ namespace SummarizeTempsLab
 
                             temp = int.Parse(line);
 
-
-
-
-
-
-
-
-
                             if (temp <= tempthresh)
 
                             {
-
-
-
-                                Console.WriteLine(temp);
-
-
-
+                               Console.WriteLine(temp);
                             }
 
 
@@ -148,7 +86,6 @@ namespace SummarizeTempsLab
                     using (StreamReader sr = File.OpenText(filepath))
 
                     {
-
                         int sum = 0;
                         int day = 0;
 
@@ -157,13 +94,9 @@ namespace SummarizeTempsLab
                         while ((line = sr.ReadLine()) != null)
 
                         {
-                            day++;
                             temp = int.Parse(line);
-
-
-
                             sum = temp + sum;
-
+                            day++;
                         }
 
                         avg = sum / day;
@@ -171,13 +104,11 @@ namespace SummarizeTempsLab
                         Console.WriteLine(avg);
 
 
-
                     }
 
                     Console.WriteLine("Would You Like to Change Your Temperature? yes or no?");
 
                     input = Console.ReadLine();
-
 
 
                     if (input == "no")
@@ -196,10 +127,7 @@ namespace SummarizeTempsLab
 
                 {
 
-                    Console.WriteLine("File Does Not Exist " +
-
-                        "Please Try Again");
-
+                    Console.WriteLine("File Does Not Exist, Please Try Again");
 
 
                     filepath = Console.ReadLine();
