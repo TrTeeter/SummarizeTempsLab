@@ -7,7 +7,7 @@ namespace SummarizeTempsLab
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("***Average Temperature**");
+            Console.WriteLine("***Average Temperature***");
 
 
             int tempthresh, temp, avg;
