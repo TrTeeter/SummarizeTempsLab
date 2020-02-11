@@ -10,7 +10,7 @@ namespace SummarizeTempsLab
             Console.WriteLine("***Average Temperature***");
 
 
-            int tempthresh, temp, avg;
+            int tempthresh, temp, avg, above, below;
 
             string input = ("");
 
@@ -42,69 +42,39 @@ namespace SummarizeTempsLab
 
                     {
 
-                        Console.WriteLine("Temperature above Threshhold:");
+                        above = 0;
+                        below = 0;
+                        int sum = 0;
+                        int day = 0;
 
                         while ((line = sr.ReadLine()) != null)
 
                         {
                             temp = int.Parse(line);
+
+                            sum = temp + sum;
+                            day++;
 
                             if (temp > tempthresh)
 
                             {
-                                Console.WriteLine(temp);
+                                above++;
                             }
-                        }
-                    }
-
-                    using (StreamReader sr = File.OpenText(filepath))
-
-                    {
-
-                        Console.WriteLine("Temperature at or Below Threshhold:");
-
-                        while ((line = sr.ReadLine()) != null)
-
-                        {
-
-                            temp = int.Parse(line);
-
-                            if (temp <= tempthresh)
-
+                            else
                             {
-                               Console.WriteLine(temp);
+                                below++;
                             }
-
-
-
-
-
+                            
+                            
                         }
-
-                    }
-
-                    using (StreamReader sr = File.OpenText(filepath))
-
-                    {
-                        int sum = 0;
-                        int day = 0;
-
-                        Console.WriteLine("Average Temperature:");
-
-                        while ((line = sr.ReadLine()) != null)
-
-                        {
-                            temp = int.Parse(line);
-                            sum = temp + sum;
-                            day++;
-                        }
-
+                        Console.WriteLine("Temperatures above the Threshold: " + above);
+                        Console.WriteLine("Temperatures Equal or Below the Threshold: " + below);
                         avg = sum / day;
 
-                        Console.WriteLine(avg);
-
-
+                        Console.WriteLine("Average Temperature: " + avg);
                     }
+
+                   
 
                     Console.WriteLine("Would You Like to Change Your Temperature? yes or no?");
 
