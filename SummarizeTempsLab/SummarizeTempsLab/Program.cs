@@ -74,15 +74,10 @@ namespace SummarizeTempsLab
                         Console.WriteLine("Average Temperature: " + avg);
                     }
 
-                   
-
                     Console.WriteLine("Would You Like to Change Your Temperature? yes or no?");
-
                     input = Console.ReadLine();
 
-
                     if (input == "no")
-
                     {
 
                         Again = false;
@@ -92,9 +87,7 @@ namespace SummarizeTempsLab
                     }
 
                 }
-
                 else
-
                 {
 
                     Console.WriteLine("File Does Not Exist, Please Try Again");
