@@ -16,7 +16,7 @@ namespace SummarizeTempsLab
 
             string filepath = ("");
 
-            string line = "";
+            string line = ("");
 
             bool Again = true;
 
