@@ -13,12 +13,14 @@ namespace SummarizeTempsLab
             int tempthresh, temp, avg, above, below;
 
             string input = ("");
-
             string filepath = ("");
-
             string line = ("");
-
             bool Again = true;
+            above = 0;
+            below = 0;
+            int sum = 0;
+            int day = 0;
+            
 
 
 
@@ -41,11 +43,6 @@ namespace SummarizeTempsLab
                     using (StreamReader sr = File.OpenText(filepath))
 
                     {
-
-                        above = 0;
-                        below = 0;
-                        int sum = 0;
-                        int day = 0;
 
                         while ((line = sr.ReadLine()) != null)
 
@@ -73,7 +70,19 @@ namespace SummarizeTempsLab
 
                         Console.WriteLine("Average Temperature: " + avg);
                     }
+                    Console.WriteLine("Would You Like to Save your Values? yes or no");
+                    input = Console.ReadLine();
+                    
+                    if (input=="yes")
+                    {
+                        using (var writer = new StreamWriter("Output.txt"))
 
+                        {
+                            writer.WriteLine("Temperatures above the Threshold: " + above);
+                            writer.WriteLine("Temperatures Equal or Below the Threshold: " + below);
+                            writer.WriteLine("Average Temperature: " + avg);
+                        }
+                    }
                     Console.WriteLine("Would You Like to Change Your Temperature? yes or no?");
                     input = Console.ReadLine();
 
